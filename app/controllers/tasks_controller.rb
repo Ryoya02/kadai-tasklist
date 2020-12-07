@@ -21,7 +21,7 @@ before_action :correct_user, only: [:show, :edit, :update, :destroy]
     else
       @tasks = current_user.tasks.order(id: :desc).page(params[:page])
       flash.now[:danger] = 'Task が投稿されませんでした'
-      render :'tasks/index'
+      render action: :new
     end
   end
 
